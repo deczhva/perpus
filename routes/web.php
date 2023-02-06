@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
+use App\Http\Controllers\user\PengembalianController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,9 +28,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('user')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     
+    //pinjam
     Route::get('/form-peminjaman', [PeminjamanController::class, 'indexForm'])->name('user.pinjam.form');
     Route::post('/form-peminjaman', [PeminjamanController::class, 'form']);
     Route::get('/riwayat-peminjaman', [PeminjamanController::class, 'riwayatPeminjaman'])->name('user.pinjam.riwayat');
-    Route::post('/submit-peminjaman', [PeminjamanController::class, 'store'])->name('submit.pinjam');
+    Route::get('/submit-peminjaman', [PeminjamanController::class, 'store'])->name('submit.pinjam');
+
+    //kembali
+    Route::get('/form-pengembalian', [PengembalianController::class, 'index'])->name('user.kembali.form');
+    Route::post('/form-pengembalian', [PengembalianController::class, 'form']);
+    Route::get('/riwayat-pengembalian', [PengembalianController::class, 'riwayatPengembalian'])->name('user.kembali.riwayat');
+    Route::get('/submit-pengembalian', [PengembalianController::class, 'store'])->name('submit.kembali');
 });
 
+    

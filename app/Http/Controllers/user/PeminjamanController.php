@@ -56,6 +56,7 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Peminjaman::create([
             'user_id' => Auth::user()->id,
+            'buku_id' =>$request->buku_id,
             'nama' => $request->nama,
             'tanggal_peminjaman' => $request->tanggal_peminjaman,
             'kondisi_buku_saat_dipinjam' => $request->kondisi_buku_saat_dipinjam

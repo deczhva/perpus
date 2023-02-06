@@ -26,8 +26,8 @@ class FirstSeeder extends Seeder
         User::create ([
             'kode' => 'C1',
             'nis' => null,
-            'fullname' => 'Zhevanya',
-            'username' => 'zhevanya',
+            'fullname' => 'Admin',
+            'username' => 'admin',
             'password' => bcrypt('123456'),
             'kelas' => null,
             'alamat' => null,
@@ -54,8 +54,8 @@ class FirstSeeder extends Seeder
         User::create ([
             'kode' => 'C3',
             'nis' => 1234567891,
-            'fullname' => 'Vendra',
-            'username' => 'vendra',
+            'fullname' => 'Zhevanya',
+            'username' => 'zhevanya',
             'password' => bcrypt('123458'),
             'kelas' => 'X BDP',
             'alamat' => 'Jl. satu',
@@ -98,7 +98,7 @@ class FirstSeeder extends Seeder
 
 
 
-        Buku::create ([
+        Buku::create([
             'judul' => 'Matematika',
             'kategori_id' => '1',
             'penerbit_id' => '1',
@@ -109,7 +109,7 @@ class FirstSeeder extends Seeder
             'j_buku_rusak' => '1',
             'foto' => null,
         ]);
-        Buku::create ([
+        Buku::create([
             'judul' => 'Nowhere',
             'kategori_id' => '2',
             'penerbit_id' => '2',
@@ -120,7 +120,7 @@ class FirstSeeder extends Seeder
             'j_buku_rusak' => '1',
             'foto' => null,
         ]);
-        Buku::create ([
+        Buku::create([
             'judul' => 'SKI',
             'kategori_id' => '3',
             'penerbit_id' => '3',

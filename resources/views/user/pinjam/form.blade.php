@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h3>Form Peminjaman</h3>
                     <div class="card-body">
-                        <form action="">
+                        <form action="{{ route('submit.pinjam') }}">
                             <div class="mb-3">
                                 <label>Nama</label>
                                 <input type="text" class="form-control" name="fullname" value="{{ Auth::user()->fullname }}" readonly>

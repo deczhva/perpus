@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard | Admin</title>
     
     <link rel="stylesheet" href="/assets/css/main/app.css">
     <link rel="stylesheet" href="/assets/css/main/app-dark.css">
@@ -43,7 +43,7 @@
                     
                     <li
                         class="sidebar-item active ">
-                        <a href="{{ route('user.dashboard') }}" class='sidebar-link'>
+                        <a href="#" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
@@ -57,10 +57,10 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="{{ route('user.pinjam.form') }}">Form Peminjaman</a>
+                                <a href="#">Form Peminjaman</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="{{ route('user.pinjam.riwayat') }}">Riwayat Peminjaman</a>
+                                <a href="#">Riwayat Peminjaman</a>
                             </li>
                         </ul>
                     </li>
@@ -73,10 +73,10 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="{{ route('user.kembali.form') }}">Form Pengembalian</a>
+                                <a href="#">Form Pengembalian</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="{{ route('user.kembali.riwayat') }}">Riwayat Pengembalian</a>
+                                <a href="#">Riwayat Pengembalian</a>
                             </li>
                         </ul>
                     </li>
@@ -99,13 +99,10 @@
                     
                     <li
                         class="sidebar-item  ">
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-link">
+                        <a href="https://github.com/zuramai/mazer#donation" class='sidebar-link'>
                             <i class="bi bi-box-arrow-left"></i>
                             <span>Logout</span>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                        </form>
                     </li>
                     
                 </ul>
@@ -200,12 +197,14 @@
     </div>
         <div id="main">
             <header class="mb-3">
-                {{-- <a href="#" class="burger-btn d-block d-xl-none">
+                <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
-                </a> --}}
+                </a>
             </header>
             
             @yield('content')
+            
+        </div>
     </div>
     <script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/app.js"></script>
