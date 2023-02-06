@@ -161,17 +161,7 @@ class FirstSeeder extends Seeder
 
         
         Pemberitahuan::create([
-            'isi' => 'Hanya melayani pengembalian buku',
-            'level_user' => null,
-            'status' => 'aktif'
-        ]);
-        Pemberitahuan::create([
-            'isi' => 'terakhir pengumpulan buku tanggal 30',
-            'level_user' => null,
-            'status' => 'nonaktif'
-        ]);
-        Pemberitahuan::create([
-            'isi' => 'pengumpulan buku pelajaran',
+            'isi' => 'di Perpustakaan SMKN 10 Jakarta',
             'level_user' => null,
             'status' => 'aktif'
         ]);
@@ -203,7 +193,7 @@ class FirstSeeder extends Seeder
 
         Identitas::create([
             'nama_app' => 'Aplikasi Perpustakaan',
-            'alamat_app' => 'Jl. SMEAN 6',
+            'alamat_app' => 'Jl. Mayjen Sutoyo, Daerah Khusus Ibukota Jakarta 13630',
             'email_app' => 'smean6@perpus.com',
             'nomor_hp' => '082837464737'
         ]);

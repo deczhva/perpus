@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\user\DashboardController;
+use App\Http\Controllers\user\PeminjamanController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +24,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route
+Route::prefix('user')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+    
+    Route::get('/form-peminjaman', [PeminjamanController::class, 'indexForm'])->name('user.pinjam.form');
+    Route::post('/form-peminjaman', [PeminjamanController::class, 'form']);
+    Route::get('/riwayat-peminjaman', [PeminjamanController::class, 'riwayatPeminjaman'])->name('user.pinjam.riwayat');
+    Route::post('/submit-peminjaman', [PeminjamanController::class, 'store'])->name('submit.pinjam');
+});
+
