@@ -14,7 +14,7 @@
                             <div class="mb-3">
                                 <label>Pilih Buku</label>
                                 <select name="buku_id" class="form-select">
-                                    <option value="" selected disabled>-- Pilih Buku --</option>
+                                    <option selected disabled>-- Pilih Buku --</option>
                                 @foreach ($data as $d)
                                     <option value="{{ $d->buku_id }}">{{ $d->buku->judul }}</option>
                                 @endforeach

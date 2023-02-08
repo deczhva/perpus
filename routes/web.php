@@ -3,6 +3,7 @@
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
 use App\Http\Controllers\user\PengembalianController;
+use App\Http\Controllers\user\ProfilController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +40,10 @@ Route::prefix('user')->group(function () {
     Route::post('/form-pengembalian', [PengembalianController::class, 'form']);
     Route::get('/riwayat-pengembalian', [PengembalianController::class, 'riwayatPengembalian'])->name('user.kembali.riwayat');
     Route::get('/submit-pengembalian', [PengembalianController::class, 'store'])->name('submit.kembali');
+
+    //profil
+    Route::get('/profil', [ProfilController::class, 'index'])->name('user.profil');
+    Route::put('/update-profil', [ProfilController::class, 'update'])->name('user.profil.update');
 });
 
     

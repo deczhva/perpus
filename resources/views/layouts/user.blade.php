@@ -91,9 +91,9 @@
                     
                     <li
                         class="sidebar-item  ">
-                        <a href="#" class='sidebar-link'>
+                        <a href="{{ route('user.profil.update') }}" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Profil</span>
+                            <span>Profil Saya</span>
                         </a>
                     </li>
                     
@@ -157,7 +157,7 @@
                         <div class="dropdown">
                             <div class="card mt-5 m-3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                 <div class="card-body">
-                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="{{ route('user.profil') }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="user-menu d-flex">
                                     <div class="user-name text-end me-3">
                                         <h6 class="mb-0 text-gray-600">{{ Auth::user()->fullname }}</h6>
