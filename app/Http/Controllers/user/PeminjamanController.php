@@ -77,8 +77,11 @@ class PeminjamanController extends Controller
         }
 
         if ($peminjaman) {
-            return redirect()->route('user.pinjam.riwayat')->with('status', 'success');
+            return redirect()->route('user.pinjam.riwayat')->with('status', 'success')->with('msg', 'berhasil menambahkan data!');
         }
+        return redirect()->back()->with('status', 'danger')->with('msg', 'gagal menambahkan data');
+
+
     }
 
     /**

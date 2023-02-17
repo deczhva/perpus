@@ -4,7 +4,7 @@
     <div class="container">
         @if (Session('status'))
         <div class="alert alert-{{ session('status') }}" role="alert"></i>
-         <strong>{{ session('message') }}</strong>
+         <strong>{{ session('msg') }}</strong>
      </div>
         @endif
 

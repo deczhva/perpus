@@ -83,7 +83,7 @@
                     
                     <li
                         class="sidebar-item  ">
-                        <a href="#" class='sidebar-link'>
+                        <a href="{{ route('user.pesan') }}" class='sidebar-link'>
                             <i class="bi bi-envelope-fill"></i>
                             <span>Pesan</span>
                         </a>
@@ -91,7 +91,7 @@
                     
                     <li
                         class="sidebar-item  ">
-                        <a href="{{ route('user.profil.update') }}" class='sidebar-link'>
+                        <a href="{{ route('user.profil') }}" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
                             <span>Profil Saya</span>
                         </a>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="user-img d-flex align-items-center">
                                         <div class="avatar avatar-md">
-                                            <img src="/assets/images/faces/1.jpg">
+                                            <img src="/img/{{ Auth::user()->foto == null ? 'profile.jpg' : Auth::user()->foto }}">
                                         </div>
                                     </div>
                                 </div>

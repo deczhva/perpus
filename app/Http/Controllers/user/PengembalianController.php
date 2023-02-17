@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
@@ -10,42 +10,21 @@ use Illuminate\Support\Facades\Auth;
 
 class PengembalianController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index() 
     {
         $data = Peminjaman::where('user_id', Auth::user()->id)
                             ->where('tanggal_pengembalian', null)
                             ->get();
-
+                            // dd($data);
         return view('user.kembali.form', compact('data'));
     }
-
+    
     public function riwayatPengembalian()
     {
         $pengembalian = Peminjaman::where('user_id', Auth::user()->id)->get();
         return view('user.kembali.riwayat', compact('pengembalian'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $cek = Peminjaman::where('user_id', $request->user_id)
@@ -54,7 +33,7 @@ class PengembalianController extends Controller
         
         $cek->update([
             'tanggal_pengembalian' => $request->tanggal_pengembalian,
-            'kondisi_buku_saat_dikembalian' => $request->kondisi_buku_saat_dipinjam,
+            'kondisi_buku_saat_dikembalikan' => $request->kondisi_buku_saat_dikembalikan,
         ]);
 
         if ($request->kondisi_buku_saat_dikembalikan == 'baik') {
@@ -69,8 +48,8 @@ class PengembalianController extends Controller
             ]);
         }
 
-        if ($request->kondisi_buku_saat_dikembalikan == 'rusak') {
-            $buku = Buku::where('id', $request->nuku_id)->first();
+        if ($request->kondisi_buku_saat_dikembalikan == 'rusak'){
+            $buku = Buku::where('id', $request->buku_id)->first();
 
             $buku->update([
                 'j_buku_rusak' => $buku->j_buku_rusak +1
@@ -81,14 +60,13 @@ class PengembalianController extends Controller
             ]);
         }
 
-        if ($request->kondisi_buku_saat_dikembalikan == 'hilang') {
+        if ($request->kondisi_buku_saat_dikembalikan == 'hilang'){
             $cek->update([
-                'denda' =>150000
+                'denda' => 150000
             ]);
         }
 
         return redirect()->route('user.kembali.riwayat');
-    }
 
-    
-}
+        }
+    }

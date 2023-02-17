@@ -43,7 +43,7 @@
                     
                     <li
                         class="sidebar-item active ">
-                        <a href="#" class='sidebar-link'>
+                        <a href="{{ route('admin.dashboard') }}" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
@@ -93,16 +93,19 @@
                         class="sidebar-item  ">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Profil</span>
+                            <span>Profil Saya</span>
                         </a>
                     </li>
                     
                     <li
                         class="sidebar-item  ">
-                        <a href="https://github.com/zuramai/mazer#donation" class='sidebar-link'>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-link">
                             <i class="bi bi-box-arrow-left"></i>
                             <span>Logout</span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        </form>
                     </li>
                     
                 </ul>
@@ -154,7 +157,7 @@
                         <div class="dropdown">
                             <div class="card mt-5 m-3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                 <div class="card-body">
-                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="{{ route('user.profil') }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="user-menu d-flex">
                                     <div class="user-name text-end me-3">
                                         <h6 class="mb-0 text-gray-600">{{ Auth::user()->fullname }}</h6>
@@ -162,7 +165,7 @@
                                     </div>
                                     <div class="user-img d-flex align-items-center">
                                         <div class="avatar avatar-md">
-                                            <img src="/assets/images/faces/1.jpg">
+                                            <img src="/img/{{ Auth::user()->foto == null ? 'profile.jpg' : Auth::user()->foto }}">
                                         </div>
                                     </div>
                                 </div>
@@ -197,14 +200,12 @@
     </div>
         <div id="main">
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
+                {{-- <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
-                </a>
+                </a> --}}
             </header>
             
             @yield('content')
-            
-        </div>
     </div>
     <script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/app.js"></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
 use App\Http\Controllers\user\PengembalianController;
@@ -39,11 +40,21 @@ Route::prefix('user')->group(function () {
     Route::get('/form-pengembalian', [PengembalianController::class, 'index'])->name('user.kembali.form');
     Route::post('/form-pengembalian', [PengembalianController::class, 'form']);
     Route::get('/riwayat-pengembalian', [PengembalianController::class, 'riwayatPengembalian'])->name('user.kembali.riwayat');
-    Route::get('/submit-pengembalian', [PengembalianController::class, 'store'])->name('submit.kembali');
+    Route::post('/submit-pengembalian', [PengembalianController::class, 'store'])->name('submit.kembali');
 
     //profil
     Route::get('/profil', [ProfilController::class, 'index'])->name('user.profil');
     Route::put('/update-profil', [ProfilController::class, 'update'])->name('user.profil.update');
+
+    //pesan
+    Route::get('/pesan/masuk', [PesanController::class, 'indexMasuk'])->name('user.pesan.masuk');
+    Route::post('/pesan/masuk/update-status', [PesanController::class, 'updateStatus'])->name('user.pesan.masuk.update-status');
+    Route::get('/pesan/terkirim', [PesanController::class, 'indexTerkirim'])->name('user.pesan.terkirim');
+    Route::post('/pesan/kirim', [PesanController::class, 'kirimPesan'])->name('user.pesan.kirim');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
 
     
