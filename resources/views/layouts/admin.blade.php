@@ -52,48 +52,65 @@
                     <li
                         class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-arrow-left-right"></i>
-                            <span>Peminjaman Buku</span>
+                            <i class="bi bi-folder2-open"></i>
+                            <span>Data Master</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="#">Form Peminjaman</a>
+                                <a href="{{ route('admin.anggota.index') }}">Data Anggota</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="#">Riwayat Peminjaman</a>
+                                <a href="#">Data Buku</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="#">Data Penerbit</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="#">Data Peminjaman</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="#">Data Pengembalian</a>
                             </li>
                         </ul>
                     </li>
-                    
-                    <li
-                        class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-arrow-clockwise"></i>
-                            <span>Pengembalian Buku</span>
-                        </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="#">Form Pengembalian</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="#">Riwayat Pengembalian</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
+
                     <li
                         class="sidebar-item  ">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-envelope-fill"></i>
+                            <i class="bi bi-book"></i>
+                            <span>Katalog Buku</span>
+                        </a>
+                    </li>
+
+                    <li
+                        class="sidebar-item  ">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Laporan Perpustakaan</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-medical"></i>
+                            <span>Identitas Aplikasi</span>
+                        </a>
+                    </li>
+
+                    <li
+                        class="sidebar-item  ">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-envelope"></i>
                             <span>Pesan</span>
                         </a>
                     </li>
                     
+                    
                     <li
                         class="sidebar-item  ">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Profil Saya</span>
+                            <i class="bi bi-person"></i>
+                            <span>Profil</span>
                         </a>
                     </li>
                     
@@ -157,15 +174,15 @@
                         <div class="dropdown">
                             <div class="card mt-5 m-3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                 <div class="card-body">
-                            <a href="{{ route('user.profil') }}" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="user-menu d-flex">
                                     <div class="user-name text-end me-3">
-                                        <h6 class="mb-0 text-gray-600">{{ Auth::user()->fullname }}</h6>
-                                        <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p>
+                                        {{-- <h6 class="mb-0 text-gray-600">{{ Auth::user()->username }}</h6> --}}
+                                        {{-- <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p> --}}
                                     </div>
                                     <div class="user-img d-flex align-items-center">
                                         <div class="avatar avatar-md">
-                                            <img src="/img/{{ Auth::user()->foto == null ? 'profile.jpg' : Auth::user()->foto }}">
+                                            {{-- <img src="/img/{{ Auth::user()->foto == null ? 'profile.jpg' : Auth::user()->foto }}"> --}}
                                         </div>
                                     </div>
                                 </div>

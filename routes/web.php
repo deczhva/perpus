@@ -55,6 +55,12 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
+    //anggota
+    Route::get('/anggota', [UserController::class, 'indexAnggota'])->name('admin.anggota.index');
+    Route::post('/anggota/add', [UserController::class, 'storeAnggota'])->name('admin.anggota.add');
+    Route::put('/anggota/update/{id}', [UserController::class, 'updateAnggota'])->name('admin.anggota.update');
+    Route::delete('/anggota/delete/{id}', [UserController::class, 'destroyAnggota'])->name('admin.anggota.delete');
 });
 
     
